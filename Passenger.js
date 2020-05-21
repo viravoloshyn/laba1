@@ -1,4 +1,4 @@
-export class Passenger {
+ class Passenger {
     constructor(name, ticket, document) {
         this.name = name;
         this.ticket = ticket;
@@ -6,3 +6,4 @@ export class Passenger {
     }
 }
 
+ module.exports = {Passenger};

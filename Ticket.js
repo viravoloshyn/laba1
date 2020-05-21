@@ -1,4 +1,4 @@
-export class Ticket {
+ class Ticket {
     constructor(train, number, date, sit) {
         this.train = train;
         this.number = number;
@@ -6,3 +6,5 @@ export class Ticket {
         this.sit = sit;
     }
 }
+
+ module.exports = {Ticket};

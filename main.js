@@ -66,9 +66,9 @@ console.log(QuickSort(mass));
 
 console.log('---------------Task 7---------------');
 
-
-let passengers = [new Passenger('Olaf', 1, 12345), new Passenger('Milana', 2, 12346),
+let passengers = [new Passenger('Olaf', 1, 12345), new Passenger('Mil', 2, 12346),
     new Passenger('Sem', 20, 12347), new Passenger('Ben', undefined, 12348)];
+
 
 let tickets = [new Ticket(12, 5, new Date(2020, 2, 12, 5, 10), 80),
     new Ticket(54, 21, new Date(2020, 3, 19, 5, 10), 80),
@@ -84,14 +84,14 @@ let trains = [new Train(10, 5, 15), new Train(59, 10, 31),
 console.log('\nДодавання нового пасажира в колекцію');
 
 let addNewPass = (pass) => {
-    Passengers.push(pass);
+    passengers.push(pass);
 };
 
-console.log(Passengers);
+console.log(passengers);
 
 addNewPass(new Passenger('Kop', 17, 12223));
 
-console.log(Passengers);
+console.log(passengers);
 
 // Редагування пасажира в колекції
 console.log('\nРедагування пасажира в колекції');
@@ -101,35 +101,35 @@ let newInfoPass = (pass, ticket, document) => {
     pass.document = document;
 };
 
-console.log(Passengers[0]);
+console.log(passengers[0]);
 
-newInfoPass(Passengers[0], 18, 12322);
+newInfoPass(passengers[0], 18, 12322);
 
-console.log(Passengers[0]);
+console.log(passengers[0]);
 
 // Видалення пасажира з колекції
 console.log('\nВидалення пасажира з колекції');
 
 let deletePass = (pass) => {
-    Passengers.forEach((value, index, array) => {
+    passengers.forEach((value, index, array) => {
         if (pass.name === value.name &&
             pass.ticket === value.ticket &&
             pass.document === value.document) array.splice(index, 1)
     })
 };
 
-console.log(Passengers);
+console.log(passengers);
 
-deletePass(Passengers[2]);
+deletePass(passengers[2]);
 
-console.log(Passengers);
+console.log(passengers);
 
 // Пошук одного пасажира в колекції
 console.log('\nПошук одного пасажира в колекції');
 let findPass = (pass) => {
     let ovePass;
 
-    Passengers.forEach((value, index) => {
+    passengers.forEach((value, index) => {
 
         if (value.name === pass.name &&
             value.ticket === pass.ticket &&
@@ -140,20 +140,20 @@ let findPass = (pass) => {
 
 };
 
-findPass(Passengers[0]);
+findPass(passengers[0]);
 
 // Додавання потяга в колекцію
 console.log('\nДодавання потяга в колекцію');
 
 let addNewTrain = (train) => {
-    Trains.push(train);
+    trains.push(train);
 };
 
-console.log(Trains);
+console.log(trains);
 
 addNewTrain(new Train(45, 16, 7));
 
-console.log(Trains);
+console.log(trains);
 // Редагування потяга в колекції
 console.log('\nРедагування потяга в колекції');
 
@@ -162,14 +162,14 @@ let editTrain = (train, newWagons, newWay) => {
     train.way = newWay;
 };
 
-editTrain(Trains[2], 42, 22);
-console.log(Trains);
+editTrain(trains[2], 42, 22);
+console.log(trains);
 
 // Видалення потяга з колекції
 console.log('\nВидалення потяга з колекції');
 
 let deleteTrain = (train) => {
-    Trains.forEach((value, index, array) => {
+    trains.forEach((value, index, array) => {
         if (train.number === value.number &&
             train.wagons === value.wagons &&
             train.way === value.way) array.splice(index, 1)
@@ -177,9 +177,9 @@ let deleteTrain = (train) => {
     })
 };
 
-deleteTrain(Trains[0]);
+deleteTrain(trains[0]);
 
-console.log(Trains);
+console.log(trains);
 
 // Пошук одного потяга в колекції
 console.log('\nПошук одного потяга в колекції');
@@ -188,7 +188,7 @@ console.log('\nПошук одного потяга в колекції');
 let findTrain = (train) => {
     let oveTrain;
 
-    Trains.forEach((value, index) => {
+    trains.forEach((value, index) => {
 
         if (value.number === train.number &&
             value.wagons === train.wagons &&
@@ -199,7 +199,7 @@ let findTrain = (train) => {
 
 };
 
-findTrain(Trains[3]);
+findTrain(trains[3]);
 
 // Покупка пасажиром квитка на потяг
 console.log('\nПокупка пасажиром квитка на потяг');
@@ -209,7 +209,7 @@ let byeTicket = (pass, ticket) => {
     console.log(`Пасажир ${pass.name} купує квиток № ${pass.ticket}`)
 };
 
-byeTicket(Passengers[3], Tikets[0]);
+byeTicket(passengers[3], tickets[0]);
 
 // Зміна квитка із одного потяга на інший
 console.log('\nЗміна квитка із одного потяга на інший');
@@ -221,7 +221,7 @@ let changeTicket = (pass, ticket) => {
     else console.log(`Пасажир ${pass.name} змінює квиток № ${oldTicket} на квиток №${pass.ticket}!`)
 };
 
-changeTicket(Passengers[3], Tikets[0]);
+changeTicket(passengers[3], tickets[0]);
 
 // Скасування покупки квитка
 console.log('\nСкасування покупки квитка');
@@ -231,7 +231,7 @@ let cancelTicket = (pass) => {
     else console.log(`Пасажир ${pass.name} відміняє квиток № ${oldTicket}!!!`)
 }
 
-cancelTicket(Passengers[0]);
+cancelTicket(passengers[0]);
 
 //Пошук потяга на який продали найбільше/найменше квитків
 console.log('\nПошук потяга на який продали найбільше/найменше квитків');
@@ -272,4 +272,4 @@ let sellsTickets = (trains, tickets) => {
 };
 
 
-sellsTickets(Trains, Tikets);
+sellsTickets(trains, tickets);
